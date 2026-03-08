@@ -1,47 +1,19 @@
-import { useState, useEffect, createContext, useContext } from 'react';
-import { onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
-import { auth, googleProvider, db, doc, getDoc, setDoc, serverTimestamp } from '../services/firebase';
+/**
+ * useAuth.js — PROTOTYPE MODE (no Firebase)
+ * Cho phép switch role bằng UI để demo tất cả luồng.
+ */
+import { useState, createContext, useContext } from 'react';
+import { MOCK_USERS } from '../services/mockData';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [userProfile, setUserProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState(MOCK_USERS.student);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      setUser(firebaseUser);
-      if (firebaseUser) {
-        const profileRef = doc(db, 'users', firebaseUser.uid);
-        const snap = await getDoc(profileRef);
-        if (snap.exists()) {
-          setUserProfile(snap.data());
-        } else {
-          // Tạo profile mặc định cho user mới
-          const defaultProfile = {
-            uid: firebaseUser.uid,
-            email: firebaseUser.email,
-            displayName: firebaseUser.displayName,
-            role: 'student',
-            createdAt: serverTimestamp(),
-          };
-          await setDoc(profileRef, defaultProfile);
-          setUserProfile(defaultProfile);
-        }
-      } else {
-        setUserProfile(null);
-      }
-      setLoading(false);
-    });
-    return unsubscribe;
-  }, []);
-
-  const loginWithGoogle = () => signInWithPopup(auth, googleProvider);
-  const logout = () => signOut(auth);
+  const switchRole = (role) => setUserProfile(MOCK_USERS[role] || MOCK_USERS.student);
 
   return (
-    <AuthContext.Provider value={{ user, userProfile, loading, loginWithGoogle, logout }}>
+    <AuthContext.Provider value={{ user: userProfile, userProfile, loading: false, switchRole }}>
       {children}
     </AuthContext.Provider>
   );
