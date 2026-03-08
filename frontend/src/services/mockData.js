@@ -30,13 +30,34 @@ export const MOCK_USERS = {
 // ─── Games ────────────────────────────────────────────────────────────────────
 export const MOCK_GAMES = [
   {
+    gameId: 'game-2048',
+    title: '2048',
+    subject: 'math',
+    thumbnailUrl: 'https://placehold.co/280x160/edc22e/white?text=2048',
+    description: 'Gộp các ô số để đạt 2048. Luyện tư duy logic và tính nhẩm.',
+    gradeLevel: [3, 4, 5],
+    isActive: true,
+    playable: true,
+  },
+  {
+    gameId: 'tic-tac-toe',
+    title: 'Tic Tac Toe',
+    subject: 'logic',
+    thumbnailUrl: 'https://placehold.co/280x160/1a73e8/white?text=Tic+Tac+Toe',
+    description: 'Đánh cờ ca-rô 3x3 với AI. Rèn tư duy chiến thuật.',
+    gradeLevel: [1, 2, 3],
+    isActive: true,
+    playable: true,
+  },
+  {
     gameId: 'o-an-quan-math',
     title: 'Ô Ăn Quan — Toán Cơ Bản',
     subject: 'math',
-    thumbnailUrl: 'https://placehold.co/280x160/1a73e8/white?text=Ô+Ăn+Quan',
+    thumbnailUrl: 'https://placehold.co/280x160/8f7a66/white?text=Ô+Ăn+Quan',
     description: 'Học cộng, trừ, nhân, chia qua game Ô Ăn Quan truyền thống.',
     gradeLevel: [1, 2, 3],
     isActive: true,
+    playable: false,
   },
   {
     gameId: 'word-quiz-vi',
@@ -46,6 +67,7 @@ export const MOCK_GAMES = [
     description: 'Ôn tập từ vựng và chính tả Tiếng Việt qua câu đố vui.',
     gradeLevel: [1, 2, 3],
     isActive: true,
+    playable: false,
   },
   {
     gameId: 'nature-quiz',
@@ -55,15 +77,7 @@ export const MOCK_GAMES = [
     description: 'Tìm hiểu thực vật, động vật và hiện tượng tự nhiên.',
     gradeLevel: [2, 3],
     isActive: true,
-  },
-  {
-    gameId: 'math-race',
-    title: 'Đua Xe Toán Học',
-    subject: 'math',
-    thumbnailUrl: 'https://placehold.co/280x160/ea4335/white?text=Đua+Xe',
-    description: 'Trả lời Toán nhanh để xe về đích trước đối thủ.',
-    gradeLevel: [2, 3, 4],
-    isActive: true,
+    playable: false,
   },
 ];
 

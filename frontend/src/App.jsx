@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './hooks/useAuth';
 import StudentHome from './pages/StudentHome';
 import TeacherDashboard from './pages/TeacherDashboard';
 import ParentDashboard from './pages/ParentDashboard';
+import GamePlay from './pages/GamePlay';
 
 const ROLES = [
   { key: 'student', label: '🎮 Học sinh' },
@@ -48,7 +49,7 @@ export default function App() {
         <DevRoleBar />
         <Routes>
           <Route path="/" element={<RoleRouter />} />
-          <Route path="/game/:gameId" element={<StudentHome />} />
+          <Route path="/game/:gameId" element={<GamePlay />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -9,10 +9,11 @@ import { useOfflineSync } from '../hooks/useOfflineSync';
 import { mockDB } from '../services/mockData';
 
 const SUBJECTS = [
-  { id: 'all', label: 'Tất cả' },
-  { id: 'math', label: 'Toán' },
+  { id: 'all',        label: 'Tất cả' },
+  { id: 'math',       label: 'Toán' },
+  { id: 'logic',      label: 'Tư duy' },
   { id: 'vietnamese', label: 'Tiếng Việt' },
-  { id: 'science', label: 'Khoa học' },
+  { id: 'science',    label: 'Khoa học' },
 ];
 
 export default function StudentHome() {
@@ -58,15 +59,19 @@ export default function StudentHome() {
         {filteredGames.map((game) => (
           <div
             key={game.gameId}
-            className="game-card"
+            className={`game-card${game.playable ? '' : ' game-card--soon'}`}
             data-testid={`game-card-${game.gameId}`}
-            onClick={() => navigate(`/game/${game.gameId}`)}
+            onClick={() => game.playable && navigate(`/game/${game.gameId}`)}
+            style={{ cursor: game.playable ? 'pointer' : 'default' }}
           >
+            {game.playable && <span className="badge-new">✦ Chơi được</span>}
             <img src={game.thumbnailUrl} alt={game.title} loading="lazy" />
             <h3>{game.title}</h3>
             <span className="subject-tag">{game.subject}</span>
             <p>{game.description}</p>
-            <button className="play-btn">Chơi ngay</button>
+            <button className="play-btn" disabled={!game.playable}>
+              {game.playable ? 'Chơi ngay →' : 'Sắp ra mắt'}
+            </button>
           </div>
         ))}
       </div>
