@@ -1,0 +1,20 @@
+[
+  {
+    "gameId": "o-an-quan-math",
+    "title": "Ô Ăn Quan - Toán Cơ Bản",
+    "subject": "math",
+    "thumbnailUrl": "/assets/thumbnails/o-an-quan.png",
+    "description": "Học Toán qua game Ô Ăn Quan truyền thống",
+    "gradeLevel": [1, 2, 3],
+    "isActive": true
+  },
+  {
+    "gameId": "word-quiz-vi",
+    "title": "Đố chữ Tiếng Việt",
+    "subject": "vietnamese",
+    "thumbnailUrl": "/assets/thumbnails/word-quiz.png",
+    "description": "Ôn tập từ vựng Tiếng Việt",
+    "gradeLevel": [1, 2, 3],
+    "isActive": true
+  }
+]
