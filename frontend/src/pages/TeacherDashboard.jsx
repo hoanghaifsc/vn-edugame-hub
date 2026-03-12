@@ -1,13 +1,11 @@
-/**
- * TeacherDashboard.jsx — PROTOTYPE MODE
- * US03: Giao bài tập | US04: Xem báo cáo (mock data, không cần API)
- */
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
+import { useLang } from '../hooks/useLang';
 import { mockDB, MOCK_GAMES } from '../services/mockData';
 
 export default function TeacherDashboard() {
   const { userProfile } = useAuth();
+  const { t } = useLang();
   const [tab, setTab] = useState('assignments');
   const [assignments, setAssignments] = useState(() => mockDB.getAssignments(userProfile?.classId));
   const [reportData, setReportData] = useState([]);
@@ -18,11 +16,10 @@ export default function TeacherDashboard() {
   function handleAssign(e) {
     e.preventDefault();
     setLoading(true);
-    // Simulate async save
     setTimeout(() => {
       mockDB.createAssignment({ ...form, teacherUid: userProfile.uid });
       setAssignments(mockDB.getAssignments(userProfile?.classId));
-      setMessage('Giao bài thành công!');
+      setMessage(t('teacher.assigned'));
       setForm({ gameId: '', classId: userProfile?.classId || '', title: '', dueDate: '' });
       setLoading(false);
     }, 500);
@@ -35,62 +32,68 @@ export default function TeacherDashboard() {
 
   return (
     <div className="teacher-dashboard" data-testid="teacher-dashboard">
-      <h1>Dashboard Giáo viên — {userProfile?.displayName}</h1>
+      <h1>{t('teacher.title')} — {userProfile?.displayName}</h1>
 
       <nav className="tab-nav">
         <button className={tab === 'assignments' ? 'active' : ''} onClick={() => setTab('assignments')} data-testid="tab-assignments">
-          Giao bài tập
+          {t('teacher.tabAssign')}
         </button>
         <button className={tab === 'reports' ? 'active' : ''} onClick={() => setTab('reports')} data-testid="tab-reports">
-          Báo cáo
+          {t('teacher.tabReport')}
         </button>
       </nav>
 
       {tab === 'assignments' && (
         <div data-testid="assignments-panel">
           <section>
-            <h2>Giao bài tập mới</h2>
+            <h2>{t('teacher.newTask')}</h2>
             <form onSubmit={handleAssign} data-testid="assign-form">
               <label>
-                Tiêu đề bài tập:
-                <input type="text" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required data-testid="input-title" />
+                {t('teacher.inputTitle')}
+                <input type="text" value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} required data-testid="input-title" />
               </label>
               <label>
-                Chọn game:
-                <select value={form.gameId} onChange={(e) => setForm({ ...form, gameId: e.target.value })} required data-testid="select-game">
-                  <option value="">-- Chọn game --</option>
-                  {MOCK_GAMES.map((g) => <option key={g.gameId} value={g.gameId}>{g.title}</option>)}
+                {t('teacher.selectGame')}
+                <select value={form.gameId} onChange={e => setForm({ ...form, gameId: e.target.value })} required data-testid="select-game">
+                  <option value="">--</option>
+                  {MOCK_GAMES.map(g => <option key={g.gameId} value={g.gameId}>{g.title}</option>)}
                 </select>
               </label>
               <label>
-                Mã lớp:
-                <input type="text" value={form.classId} onChange={(e) => setForm({ ...form, classId: e.target.value })} required data-testid="input-class" />
+                {t('teacher.classId')}
+                <input type="text" value={form.classId} onChange={e => setForm({ ...form, classId: e.target.value })} required data-testid="input-class" />
               </label>
               <label>
-                Hạn nộp:
-                <input type="datetime-local" value={form.dueDate} onChange={(e) => setForm({ ...form, dueDate: e.target.value })} required data-testid="input-due" />
+                {t('teacher.dueDate')}
+                <input type="datetime-local" value={form.dueDate} onChange={e => setForm({ ...form, dueDate: e.target.value })} required data-testid="input-due" />
               </label>
               <button type="submit" disabled={loading} data-testid="btn-assign">
-                {loading ? 'Đang lưu...' : 'Giao bài'}
+                {loading ? t('teacher.assigning') : t('teacher.btnAssign')}
               </button>
             </form>
             {message && <p className="success-msg" data-testid="assign-message">{message}</p>}
           </section>
 
           <section>
-            <h2>Bài tập đã giao</h2>
+            <h2>{t('teacher.assigned_list')}</h2>
             <table data-testid="assignments-table">
               <thead>
-                <tr><th>Tiêu đề</th><th>Game</th><th>Lớp</th><th>Hạn nộp</th><th></th></tr>
+                <tr>
+                  <th>{t('col.title')}</th>
+                  <th>{t('col.game')}</th>
+                  <th>{t('col.class')}</th>
+                  <th>{t('col.due')}</th>
+                  <th></th>
+                </tr>
               </thead>
               <tbody>
-                {assignments.map((a) => (
+                {assignments.map(a => (
                   <tr key={a.assignmentId} data-testid={`assignment-row-${a.assignmentId}`}>
                     <td>{a.title}</td>
                     <td>{a.gameTitle}</td>
                     <td>{a.classId}</td>
-                    <td>{new Date(a.dueDate).toLocaleDateString('vi-VN')}</td>
-                    <td><button onClick={() => viewReport(a.assignmentId)}>Xem báo cáo</button></td>
+                    <td>{new Date(a.dueDate).toLocaleDateString()}</td>
+                    <td><button onClick={() => viewReport(a.assignmentId)}>{t('teacher.viewReport')}</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -101,19 +104,26 @@ export default function TeacherDashboard() {
 
       {tab === 'reports' && (
         <div data-testid="reports-panel">
-          <h2>Báo cáo kết quả học sinh</h2>
+          <h2>{t('teacher.reportTitle')}</h2>
           {reportData.length === 0 ? (
-            <p>Chọn một bài tập để xem báo cáo.</p>
+            <p>{t('teacher.noReport')}</p>
           ) : (
             <table data-testid="report-table">
               <thead>
-                <tr><th>Học sinh</th><th>Trạng thái</th><th>Điểm</th><th>Câu đúng</th><th>Câu sai</th><th>Thời gian (giây)</th></tr>
+                <tr>
+                  <th>{t('col.student')}</th>
+                  <th>{t('col.status')}</th>
+                  <th>{t('col.score')}</th>
+                  <th>{t('col.correct')}</th>
+                  <th>{t('col.wrong')}</th>
+                  <th>{t('col.duration')}</th>
+                </tr>
               </thead>
               <tbody>
-                {reportData.map((row) => (
+                {reportData.map(row => (
                   <tr key={row.studentUid} data-testid={`report-row-${row.studentUid}`}>
                     <td>{row.studentName}</td>
-                    <td data-testid="status">{row.status === 'completed' ? 'Hoàn thành' : 'Chưa làm'}</td>
+                    <td data-testid="status">{row.status === 'completed' ? t('status.done') : t('status.pending')}</td>
                     <td>{row.score ?? '-'}</td>
                     <td>{row.correctAnswers ?? '-'}</td>
                     <td>{row.wrongAnswers ?? '-'}</td>
