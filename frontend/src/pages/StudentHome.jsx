@@ -7,6 +7,14 @@ import { mockDB } from '../services/mockData';
 
 const SUBJECT_KEYS = ['all', 'math', 'logic', 'vietnamese', 'science'];
 
+const SUBJECT_ICONS = {
+  all: '🎮',
+  math: '🔢',
+  logic: '🧩',
+  vietnamese: '📖',
+  science: '🔬',
+};
+
 export default function StudentHome() {
   const { userProfile } = useAuth();
   const { online, syncState } = useOfflineSync();
@@ -25,9 +33,14 @@ export default function StudentHome() {
         <div className="sync-banner" data-testid="sync-banner">{t('banner.syncing')}</div>
       )}
 
-      <header>
-        <h1>{t('home.greeting', { name: userProfile?.displayName })}</h1>
-        <p>{t('home.subtitle')}</p>
+      <header className="home-header">
+        <div className="home-header__text">
+          <h1>{t('home.greeting', { name: userProfile?.displayName })}</h1>
+          <p>{t('home.subtitle')}</p>
+        </div>
+        <div className="home-header__avatar">
+          {userProfile?.displayName?.[0] ?? '?'}
+        </div>
       </header>
 
       <nav className="subject-filter" data-testid="subject-filter">
@@ -38,7 +51,7 @@ export default function StudentHome() {
             onClick={() => setSelectedSubject(id)}
             data-testid={`filter-${id}`}
           >
-            {t(`subject.${id}`)}
+            {SUBJECT_ICONS[id]} {t(`subject.${id}`)}
           </button>
         ))}
       </nav>
@@ -47,25 +60,43 @@ export default function StudentHome() {
         {filteredGames.map(game => (
           <div
             key={game.gameId}
-            className={`game-card${game.playable ? '' : ' game-card--soon'}`}
+            className={`game-card${game.playable ? ' game-card--playable' : ' game-card--soon'}`}
             data-testid={`game-card-${game.gameId}`}
             onClick={() => game.playable && navigate(`/game/${game.gameId}`)}
             style={{ cursor: game.playable ? 'pointer' : 'default' }}
           >
-            {game.playable && <span className="badge-new">{t('game.playable')}</span>}
-            <img src={game.thumbnailUrl} alt={game.title} loading="lazy" />
-            <h3>{game.title}</h3>
-            <span className="subject-tag">{t(`subject.${game.subject}`)}</span>
-            <p>{game.description}</p>
-            <button className="play-btn" disabled={!game.playable}>
-              {game.playable ? t('game.playNow') : t('game.comingSoon')}
-            </button>
+            {game.playable && (
+              <span className="badge-new">{t('game.playable')}</span>
+            )}
+            <img src={game.thumbnailUrl} alt={t(`game.${game.gameId}.title`)} loading="lazy" />
+            <div className="game-card__body">
+              <div className="game-card__meta">
+                <span className="subject-tag">{t(`subject.${game.subject}`)}</span>
+                {game.gradeLevel && (
+                  <span className="grade-tag">
+                    {t('game.grade')} {game.gradeLevel.join('–')}
+                  </span>
+                )}
+              </div>
+              <h3>{t(`game.${game.gameId}.title`)}</h3>
+              <p>{t(`game.${game.gameId}.desc`)}</p>
+              <button
+                className="play-btn"
+                disabled={!game.playable}
+                onClick={(e) => { e.stopPropagation(); game.playable && navigate(`/game/${game.gameId}`); }}
+              >
+                {game.playable ? t('game.playNow') : t('game.comingSoon')}
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
       {filteredGames.length === 0 && (
-        <p data-testid="no-games">{t('home.noGames')}</p>
+        <div className="empty-state" data-testid="no-games">
+          <span className="empty-state__icon">🎲</span>
+          <p>{t('home.noGames')}</p>
+        </div>
       )}
     </div>
   );

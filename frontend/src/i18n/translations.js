@@ -36,6 +36,7 @@ export const translations = {
   'game.playNow':     { vi:'Chơi ngay →',  en:'Play now →',    zh:'立即游戏 →', ko:'지금 플레이 →', ja:'今すぐプレイ →', es:'Jugar ahora →', fr:'Jouer →'       },
   'game.comingSoon':  { vi:'Sắp ra mắt',   en:'Coming soon',   zh:'即将推出',   ko:'출시 예정',     ja:'近日公開',       es:'Próximamente',  fr:'Bientôt'       },
   'game.playable':    { vi:'✦ Chơi được',  en:'✦ Playable',    zh:'✦ 可玩',     ko:'✦ 플레이 가능', ja:'✦ プレイ可能',   es:'✦ Jugable',     fr:'✦ Jouable'     },
+  'game.grade':       { vi:'Lớp',          en:'Grade',         zh:'年级',          ko:'학년',          ja:'学年',           es:'Grado',           fr:'Classe'          },
   'game.notFound':    { vi:'Game chưa được tích hợp.', en:'Game not integrated yet.', zh:'游戏尚未集成。', ko:'게임이 아직 통합되지 않았습니다.', ja:'ゲームはまだ統合されていません。', es:'El juego aún no está integrado.', fr:'Le jeu n\'est pas encore intégré.' },
   'game.backHome':    { vi:'← Về trang chủ', en:'← Back to home', zh:'← 返回主页', ko:'← 홈으로',      ja:'← ホームへ',     es:'← Volver al inicio', fr:'← Accueil'  },
 
@@ -90,6 +91,18 @@ export const translations = {
   'trend.up':         { vi:'↑ Tốt hơn',en:'↑ Improving',zh:'↑ 进步', ko:'↑ 향상', ja:'↑ 向上中',  es:'↑ Mejorando',fr:'↑ En progrès' },
   'trend.down':       { vi:'↓ Cần cải thiện', en:'↓ Needs work', zh:'↓ 需改进', ko:'↓ 개선 필요', ja:'↓ 要改善', es:'↓ Necesita mejorar', fr:'↓ À améliorer' },
   'trend.stable':     { vi:'→ Ổn định', en:'→ Stable',  zh:'→ 稳定', ko:'→ 안정',  ja:'→ 安定',    es:'→ Estable', fr:'→ Stable'  },
+
+  // ─── Game titles & descriptions ──────────────────────────────────────────────
+  'game.game-2048.title':       { vi:'2048',                          en:'2048',                          zh:'2048',                     ko:'2048',                      ja:'2048',                          es:'2048',                        fr:'2048'                        },
+  'game.game-2048.desc':        { vi:'Gộp các ô số để đạt 2048. Luyện tư duy logic và tính nhẩm.', en:'Merge tiles to reach 2048. Train logical thinking and mental math.', zh:'合并方块达到2048，锻炼逻辑思维和心算。', ko:'타일을 합쳐 2048을 만들어 보세요. 논리 사고와 암산을 훈련합니다.', ja:'タイルを合わせて2048を目指そう。論理的思考と暗算を鍛えます。', es:'Combina fichas para llegar a 2048. Entrena el pensamiento lógico y el cálculo mental.', fr:'Fusionnez les tuiles pour atteindre 2048. Entraîne la logique et le calcul mental.' },
+  'game.tic-tac-toe.title':     { vi:'Tic Tac Toe',                   en:'Tic Tac Toe',                   zh:'井字棋',                   ko:'틱택토',                     ja:'三目並べ',                       es:'Tres en Raya',                fr:'Morpion'                     },
+  'game.tic-tac-toe.desc':      { vi:'Đánh cờ ca-rô 3×3 với AI. Rèn tư duy chiến thuật.', en:'Play 3×3 against AI. Train tactical thinking.', zh:'与AI对战井字棋，培养战术思维。', ko:'AI와 3×3 게임 대결. 전술적 사고를 훈련합니다.', ja:'AIと3×3の対戦。戦術的思考を鍛えます。', es:'Juega 3×3 contra la IA. Entrena el pensamiento táctico.', fr:'Jouez 3×3 contre l\'IA. Entraîne la réflexion tactique.' },
+  'game.o-an-quan-math.title':  { vi:'Ô Ăn Quan — Toán Cơ Bản',      en:'Ô Ăn Quan — Basic Math',        zh:'Ô Ăn Quan — 基础数学',      ko:'오안꽌 — 기초 수학',           ja:'オアンクアン — 基礎算数',        es:'Ô Ăn Quan — Matemáticas Básicas', fr:'Ô Ăn Quan — Maths de base'  },
+  'game.o-an-quan-math.desc':   { vi:'Học cộng, trừ, nhân, chia qua game Ô Ăn Quan truyền thống.', en:'Learn addition, subtraction, multiplication and division through the traditional Ô Ăn Quan game.', zh:'通过传统的Ô Ăn Quan游戏学习加减乘除。', ko:'전통 오안꽌 게임으로 덧셈, 뺄셈, 곱셈, 나눗셈을 배웁니다.', ja:'伝統的なオアンクアンゲームで四則演算を学びます。', es:'Aprende suma, resta, multiplicación y división a través del juego tradicional Ô Ăn Quan.', fr:'Apprends les 4 opérations à travers le jeu traditionnel Ô Ăn Quan.' },
+  'game.word-quiz-vi.title':    { vi:'Đố Chữ Tiếng Việt',             en:'Vietnamese Word Quiz',          zh:'越南语单词测验',             ko:'베트남어 단어 퀴즈',           ja:'ベトナム語単語クイズ',           es:'Quiz de Vocabulario Vietnamita',fr:'Quiz de Mots Vietnamiens'    },
+  'game.word-quiz-vi.desc':     { vi:'Ôn tập từ vựng và chính tả Tiếng Việt qua câu đố vui.', en:'Practice Vietnamese vocabulary and spelling through fun quizzes.', zh:'通过趣味测验练习越南语词汇和拼写。', ko:'재미있는 퀴즈로 베트남어 어휘와 맞춤법을 연습합니다.', ja:'楽しいクイズでベトナム語の語彙とスペルを練習します。', es:'Practica vocabulario y ortografía vietnamita con divertidos juegos.', fr:'Entraîne-toi en vocabulaire et orthographe vietnamiens.' },
+  'game.nature-quiz.title':     { vi:'Khám Phá Tự Nhiên',             en:'Explore Nature',                zh:'探索自然',                   ko:'자연 탐험',                   ja:'自然探検',                       es:'Explorar la Naturaleza',      fr:'Explorer la Nature'          },
+  'game.nature-quiz.desc':      { vi:'Tìm hiểu thực vật, động vật và hiện tượng tự nhiên.', en:'Discover plants, animals and natural phenomena.', zh:'了解植物、动物和自然现象。', ko:'식물, 동물과 자연 현상을 알아봅니다.', ja:'植物、動物、自然現象を学びます。', es:'Descubre plantas, animales y fenómenos naturales.', fr:'Découvre les plantes, animaux et phénomènes naturels.' },
 
   // ─── 2048 ────────────────────────────────────────────────────────────────────
   '2048.hint':        { vi:'Dùng phím mũi tên hoặc vuốt để chơi', en:'Use arrow keys or swipe to play', zh:'使用方向键或滑动来玩', ko:'방향키 또는 스와이프로 플레이하세요', ja:'矢印キーまたはスワイプで操作', es:'Usa las teclas de flecha o desliza', fr:'Utilisez les flèches ou glissez' },
