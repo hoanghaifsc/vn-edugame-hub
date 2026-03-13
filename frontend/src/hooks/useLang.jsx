@@ -21,10 +21,7 @@ export function LangProvider({ children }) {
     document.documentElement.lang = code;
   }, []);
 
-  const t = useCallback(
-    (key, vars) => translate(key, lang, vars),
-    [lang]
-  );
+  const t = (key, vars) => translate(key, lang, vars);
 
   return (
     <LangContext.Provider value={{ lang, setLang, t, languages: LANGUAGES }}>
