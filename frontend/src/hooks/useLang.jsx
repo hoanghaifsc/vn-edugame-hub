@@ -11,7 +11,7 @@ const STORAGE_KEY = 'edugame_lang';
 
 export function LangProvider({ children }) {
   const [lang, setLangState] = useState(
-    () => localStorage.getItem(STORAGE_KEY) || 'vi'
+    () => localStorage.getItem(STORAGE_KEY) || 'en'
   );
 
   const setLang = useCallback((code) => {
