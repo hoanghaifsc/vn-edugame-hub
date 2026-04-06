@@ -67,7 +67,7 @@ export const MOCK_GAMES = [
     description: 'Ôn tập từ vựng và chính tả Tiếng Việt qua câu đố vui.',
     gradeLevel: [1, 2, 3],
     isActive: true,
-    playable: false,
+    playable: true,
   },
   {
     gameId: 'nature-quiz',
