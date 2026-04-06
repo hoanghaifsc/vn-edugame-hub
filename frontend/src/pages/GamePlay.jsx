@@ -4,6 +4,7 @@ import Game2048      from '../game/Game2048/index.jsx';
 import TicTacToe     from '../game/TicTacToe/index.jsx';
 import WordQuizVi    from '../game/WordQuizVi/index.jsx';
 import MathCompare   from '../game/MathCompare/index.jsx';
+import DienDauTiengViet from '../game/DienDauTiengViet/index.jsx';
 import { MOCK_GAMES } from '../services/mockData';
 
 const GAME_COMPONENTS = {
@@ -11,6 +12,7 @@ const GAME_COMPONENTS = {
   'tic-tac-toe':  TicTacToe,
   'word-quiz-vi': WordQuizVi,
   'math-compare': MathCompare,
+  'dien-dau-tieng-viet': DienDauTiengViet,
 };
 
 export default function GamePlay() {

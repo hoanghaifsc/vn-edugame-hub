@@ -69,6 +69,17 @@ export const MOCK_GAMES = [
     isActive: true,
     playable: true,
   },
+
+  {
+    gameId: 'dien-dau-tieng-viet',
+    title: 'Điền Dấu Tiếng Việt',
+    subject: 'vietnamese',
+    thumbnailUrl: 'https://placehold.co/280x160/34a853/ffffff?text=Điền+Dấu',
+    description: 'Chọn từ có dấu đúng từ dạng không dấu. Luyện chính tả và đọc hiểu cho lớp 1-2.',
+    gradeLevel: [1, 2],
+    isActive: true,
+    playable: true,
+  },
   {
     gameId: 'nature-quiz',
     title: 'Khám Phá Tự Nhiên',
