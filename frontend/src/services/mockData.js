@@ -79,6 +79,16 @@ export const MOCK_GAMES = [
     isActive: true,
     playable: false,
   },
+  {
+    gameId: 'math-compare',
+    title: 'So Sánh Số',
+    subject: 'math',
+    thumbnailUrl: 'https://placehold.co/280x160/1a73e8/ffffff?text=So+Sánh+Số',
+    description: 'Chọn dấu >, < hoặc = để so sánh hai số. Luyện nền tảng toán lớp 1-2.',
+    gradeLevel: [1, 2],
+    isActive: true,
+    playable: true,
+  },
 ];
 
 // ─── Assignments ──────────────────────────────────────────────────────────────

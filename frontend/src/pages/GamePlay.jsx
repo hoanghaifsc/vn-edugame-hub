@@ -1,14 +1,16 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLang } from '../hooks/useLang';
 import Game2048      from '../game/Game2048/index.jsx';
-import TicTacToe    from '../game/TicTacToe/index.jsx';
-import WordQuizVi   from '../game/WordQuizVi/index.jsx';
+import TicTacToe     from '../game/TicTacToe/index.jsx';
+import WordQuizVi    from '../game/WordQuizVi/index.jsx';
+import MathCompare   from '../game/MathCompare/index.jsx';
 import { MOCK_GAMES } from '../services/mockData';
 
 const GAME_COMPONENTS = {
   'game-2048':    Game2048,
   'tic-tac-toe':  TicTacToe,
   'word-quiz-vi': WordQuizVi,
+  'math-compare': MathCompare,
 };
 
 export default function GamePlay() {

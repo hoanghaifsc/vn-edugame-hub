@@ -110,6 +110,8 @@ export const translations = {
   'wqv.back':         { vi:'← Quay lại',     en:'← Back',          zh:'← 返回',   ko:'← 뒤로',    ja:'← 戻る',      es:'← Volver',     fr:'← Retour'    },
   'game.word-quiz-vi.title':    { vi:'Đố Chữ Tiếng Việt',             en:'Vietnamese Word Quiz',          zh:'越南语单词测验',             ko:'베트남어 단어 퀴즈',           ja:'ベトナム語単語クイズ',           es:'Quiz de Vocabulario Vietnamita',fr:'Quiz de Mots Vietnamiens'    },
   'game.word-quiz-vi.desc':     { vi:'Ôn tập từ vựng và chính tả Tiếng Việt qua câu đố vui.', en:'Practice Vietnamese vocabulary and spelling through fun quizzes.', zh:'通过趣味测验练习越南语词汇和拼写。', ko:'재미있는 퀴즈로 베트남어 어휘와 맞춤법을 연습합니다.', ja:'楽しいクイズでベトナム語の語彙とスペルを練習します。', es:'Practica vocabulario y ortografía vietnamita con divertidos juegos.', fr:'Entraîne-toi en vocabulaire et orthographe vietnamiens.' },
+  'game.math-compare.title':    { vi:'So Sánh Số',                   en:'Number Compare',                zh:'数字比较',                   ko:'숫자 비교',                   ja:'数くらべ',                       es:'Comparar Números',            fr:'Comparer les Nombres'       },
+  'game.math-compare.desc':     { vi:'Chọn dấu >, < hoặc = để so sánh hai số. Luyện nền tảng toán lớp 1-2.', en:'Choose >, < or = to compare two numbers. Practice core math for grades 1-2.', zh:'选择 >、< 或 = 来比较两个数字，练习一年级到二年级基础数学。', ko:'>, <, = 기호를 골라 두 숫자를 비교해요. 1-2학년 기초 수학을 연습합니다.', ja:'>, <, = を選んで2つの数をくらべよう。小学1-2年向けの基礎算数です。', es:'Elige >, < o = para comparar dos números. Practica matemáticas básicas de 1.º-2.º.', fr:'Choisis >, < ou = pour comparer deux nombres. Exerce les bases de maths niveau CP-CE1.' },
   'game.nature-quiz.title':     { vi:'Khám Phá Tự Nhiên',             en:'Explore Nature',                zh:'探索自然',                   ko:'자연 탐험',                   ja:'自然探検',                       es:'Explorar la Naturaleza',      fr:'Explorer la Nature'          },
   'game.nature-quiz.desc':      { vi:'Tìm hiểu thực vật, động vật và hiện tượng tự nhiên.', en:'Discover plants, animals and natural phenomena.', zh:'了解植物、动物和自然现象。', ko:'식물, 동물과 자연 현상을 알아봅니다.', ja:'植物、動物、自然現象を学びます。', es:'Descubre plantas, animales y fenómenos naturales.', fr:'Découvre les plantes, animaux et phénomènes naturels.' },
 
@@ -134,6 +136,28 @@ export const translations = {
   'ttt.drawMsg':      { vi:'🤝 Hòa!',      en:'🤝 Draw!',    zh:'🤝 平局！',  ko:'🤝 무승부!',    ja:'🤝 引き分け！',  es:'🤝 ¡Empate!',    fr:'🤝 Égalité !' },
   'ttt.newGame':      { vi:'Ván mới',      en:'New game',    zh:'新一局',    ko:'새 게임',       ja:'新しいゲーム',   es:'Nueva partida',  fr:'Nouvelle partie' },
   'ttt.back':         { vi:'← Quay lại',  en:'← Back',      zh:'← 返回',    ko:'← 뒤로',       ja:'← 戻る',         es:'← Volver',       fr:'← Retour'  },
+
+  // ─── MathCompare ────────────────────────────────────────────────────────────
+  'mathCompare.subtitle':      { vi:'Chọn dấu đúng giữa hai số.', en:'Choose the correct sign between two numbers.', zh:'在两个数字之间选择正确符号。', ko:'두 숫자 사이에 알맞은 기호를 고르세요.', ja:'2つの数のあいだに正しい記号を選ぼう。', es:'Elige el signo correcto entre dos números.', fr:'Choisis le bon signe entre deux nombres.' },
+  'mathCompare.score':         { vi:'Điểm', en:'Score', zh:'得分', ko:'점수', ja:'スコア', es:'Puntos', fr:'Score' },
+  'mathCompare.question':      { vi:'Câu', en:'Question', zh:'题', ko:'문제', ja:'問題', es:'Pregunta', fr:'Question' },
+  'mathCompare.streak':        { vi:'Chuỗi đúng:', en:'Streak:', zh:'连对：', ko:'연속 정답:', ja:'連続正解:', es:'Racha:', fr:'Série :' },
+  'mathCompare.level1':        { vi:'Mức 1 · 1-10', en:'Level 1 · 1-10', zh:'第1级 · 1-10', ko:'1단계 · 1-10', ja:'レベル1 · 1-10', es:'Nivel 1 · 1-10', fr:'Niveau 1 · 1-10' },
+  'mathCompare.level2':        { vi:'Mức 2 · 1-100', en:'Level 2 · 1-100', zh:'第2级 · 1-100', ko:'2단계 · 1-100', ja:'レベル2 · 1-100', es:'Nivel 2 · 1-100', fr:'Niveau 2 · 1-100' },
+  'mathCompare.level3':        { vi:'Mức 3 · 1-1000', en:'Level 3 · 1-1000', zh:'第3级 · 1-1000', ko:'3단계 · 1-1000', ja:'レベル3 · 1-1000', es:'Nivel 3 · 1-1000', fr:'Niveau 3 · 1-1000' },
+  'mathCompare.instruction':   { vi:'Hãy chọn dấu đúng để so sánh.', en:'Choose the correct sign to compare.', zh:'请选择正确的比较符号。', ko:'알맞은 비교 기호를 고르세요.', ja:'正しい比較記号を選ぼう。', es:'Elige el signo correcto para comparar.', fr:'Choisis le bon signe de comparaison.' },
+  'mathCompare.correct':       { vi:'✅ Chính xác!', en:'✅ Correct!', zh:'✅ 正确！', ko:'✅ 정답!', ja:'✅ 正解！', es:'✅ ¡Correcto!', fr:'✅ Correct !' },
+  'mathCompare.wrong':         { vi:'❌ Chưa đúng.', en:'❌ Not quite.', zh:'❌ 不对。', ko:'❌ 틀렸어요.', ja:'❌ ちがうよ。', es:'❌ No es correcto.', fr:'❌ Pas encore.' },
+  'mathCompare.points':        { vi:'điểm', en:'points', zh:'分', ko:'점', ja:'ポイント', es:'puntos', fr:'points' },
+  'mathCompare.next':          { vi:'Câu tiếp →', en:'Next →', zh:'下一题 →', ko:'다음 →', ja:'次へ →', es:'Siguiente →', fr:'Suivant →' },
+  'mathCompare.viewResult':    { vi:'Xem kết quả →', en:'See results →', zh:'查看结果 →', ko:'결과 보기 →', ja:'結果を見る →', es:'Ver resultados →', fr:'Voir résultats →' },
+  'mathCompare.back':          { vi:'← Quay lại', en:'← Back', zh:'← 返回', ko:'← 뒤로', ja:'← 戻る', es:'← Volver', fr:'← Retour' },
+  'mathCompare.playAgain':     { vi:'Chơi lại', en:'Play again', zh:'再玩一次', ko:'다시 하기', ja:'もう一度', es:'Jugar otra vez', fr:'Rejouer' },
+  'mathCompare.resultTitle':   { vi:'Kết quả', en:'Result', zh:'结果', ko:'결과', ja:'結果', es:'Resultado', fr:'Résultat' },
+  'mathCompare.correctAnswers':{ vi:'câu đúng', en:'correct answers', zh:'题答对', ko:'문제 정답', ja:'問正解', es:'respuestas correctas', fr:'bonnes réponses' },
+  'mathCompare.resultGreat':   { vi:'Bé so sánh số rất tốt rồi!', en:'Great job comparing numbers!', zh:'你比较数字很棒！', ko:'숫자 비교를 아주 잘했어요!', ja:'数くらべがとても上手！', es:'¡Muy bien comparando números!', fr:'Très bon travail pour comparer les nombres !' },
+  'mathCompare.resultGood':    { vi:'Làm tốt lắm, chơi lại để tăng điểm nhé.', en:'Nice work. Play again to improve your score.', zh:'做得不错，再玩一次争取更高分。', ko:'잘했어요. 다시 해서 점수를 더 올려봐요.', ja:'よくできたね。もう一度遊んで点数アップ！', es:'Buen trabajo. Juega otra vez para mejorar tu puntaje.', fr:'Bon travail. Rejoue pour améliorer ton score.' },
+  'mathCompare.resultTry':     { vi:'Không sao, luyện thêm một chút nữa nhé.', en:'No worries. A bit more practice will help.', zh:'没关系，再多练习一下吧。', ko:'괜찮아요. 조금만 더 연습해봐요.', ja:'だいじょうぶ。もう少し練習してみよう。', es:'No pasa nada. Un poco más de práctica te ayudará.', fr:'Pas de souci. Un peu plus de pratique t’aidera.' },
 };
 
 /** Tra cứu bản dịch, fallback về tiếng Anh → key nếu thiếu */
