@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vietnamese Word Quiz</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f8f9fa;color:#333}
+    .wrap{max-width:920px;margin:0 auto;padding:24px 16px 40px}
+    .hero{display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%);color:#fff;border-radius:18px;padding:20px 24px;margin-bottom:20px}
+    .hero h1{margin:0 0 6px;font-size:28px}.hero p{margin:0;opacity:.9}.avatar{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.2);font-size:24px;font-weight:700}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.tag{display:inline-block;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700}.subject{background:#e8f0fe;color:#1a73e8}.grade{background:#fce8e6;color:#ea4335}.state{background:#e6f4ea;color:#137333}
+    .card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:18px}
+    .progress{height:10px;background:#e8eaed;border-radius:999px;overflow:hidden;margin:12px 0 18px}.bar{height:100%;background:#1a73e8;width:0%;transition:width .25s}
+    .topline{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#5f6368;font-size:14px}
+    .question{font-size:26px;font-weight:800;margin:12px 0 8px}.hint{color:#5f6368;line-height:1.5;margin-bottom:18px}
+    .answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answers button{border:2px solid #e0e0e0;background:#fff;border-radius:12px;padding:14px 12px;font-size:16px;font-weight:700;cursor:pointer;transition:.15s;text-align:left}.answers button:hover{border-color:#1a73e8;color:#1a73e8;transform:translateY(-1px)}.answers button.correct{background:#e6f4ea;border-color:#34a853;color:#137333}.answers button.wrong{background:#fce8e6;border-color:#ea4335;color:#c5221f}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:none;border-radius:10px;padding:11px 16px;font-size:14px;font-weight:700;cursor:pointer}.btn-primary{background:#1a73e8;color:#fff}.btn-secondary{background:#eef3fd;color:#1a73e8}
+    .result{margin-top:14px;padding:12px 14px;border-radius:12px;background:#f1f3f4;display:none}.result.show{display:block}
+    .footer{margin-top:18px;color:#5f6368;font-size:13px}.hidden{display:none}
+    @media (max-width:640px){.answers{grid-template-columns:1fr}.hero h1{font-size:24px}.question{font-size:22px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1>Vietnamese Word Quiz</h1>
+        <p>Mini game luyện từ vựng, chính tả và nghĩa từ theo vibe EduGame Hub.</p>
+      </div>
+      <div class="avatar">V</div>
+    </div>
+
+    <div class="meta">
+      <span class="tag subject">📖 Vietnamese</span>
+      <span class="tag grade">Grade 1–2–3</span>
+      <span class="tag state">✦ Playable</span>
+    </div>
+
+    <div class="card">
+      <div class="topline">
+        <div><strong>Điểm:</strong> <span id="score">0</span></div>
+        <div><strong>Câu:</strong> <span id="index">1</span>/<span id="total">5</span></div>
+      </div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+
+      <div id="quiz">
+        <div class="question" id="question"></div>
+        <div class="hint" id="hint"></div>
+        <div class="answers" id="answers"></div>
+        <div class="result" id="result"></div>
+        <div class="actions">
+          <button class="btn btn-primary hidden" id="nextBtn">Câu tiếp theo →</button>
+          <button class="btn btn-secondary hidden" id="restartBtn">Chơi lại</button>
+        </div>
+      </div>
+
+      <div class="footer">Bản mini đầu tiên: HTML/CSS/JS thuần, dễ nhúng vào hub hoặc mở độc lập.</div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: 'Từ nào viết đúng chính tả?',
+        hint: 'Chọn cách viết đúng trong 4 đáp án.',
+        answers: ['chăm chỉ', 'chăm chĩ', 'trăm chỉ', 'châm chỉ'],
+        correct: 0,
+        explain: '“Chăm chỉ” là cách viết đúng.'
+      },
+      {
+        question: 'Từ “lung linh” gần nghĩa nhất với từ nào?',
+        hint: 'Chọn từ gần nghĩa nhất.',
+        answers: ['tối tăm', 'lấp lánh', 'ồn ào', 'nhanh nhẹn'],
+        correct: 1,
+        explain: '“Lung linh” gần nghĩa với “lấp lánh”.'
+      },
+      {
+        question: 'Điền từ thích hợp: “Bé ___ sách mỗi tối.”',
+        hint: 'Chọn động từ phù hợp nhất.',
+        answers: ['đọc', 'ngủ', 'chạy', 'vẽ'],
+        correct: 0,
+        explain: 'Câu đúng là: “Bé đọc sách mỗi tối.”'
+      },
+      {
+        question: 'Từ nào chỉ hoạt động?',
+        hint: 'Tìm từ diễn tả hành động.',
+        answers: ['xinh đẹp', 'bàn ghế', 'nhảy múa', 'màu đỏ'],
+        correct: 2,
+        explain: '“Nhảy múa” là từ chỉ hoạt động.'
+      },
+      {
+        question: 'Câu nào dùng dấu câu hợp lý nhất?',
+        hint: 'Chọn câu rõ ràng, dễ đọc.',
+        answers: [
+          'Hôm nay trời đẹp em đi học.',
+          'Hôm nay, trời đẹp em đi học',
+          'Hôm nay trời đẹp, em đi học.',
+          'Hôm nay trời, đẹp em đi học.'
+        ],
+        correct: 2,
+        explain: 'Câu “Hôm nay trời đẹp, em đi học.” tự nhiên và đúng dấu câu hơn.'
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+    let locked = false;
+
+    const questionEl = document.getElementById('question');
+    const hintEl = document.getElementById('hint');
+    const answersEl = document.getElementById('answers');
+    const resultEl = document.getElementById('result');
+    const nextBtn = document.getElementById('nextBtn');
+    const restartBtn = document.getElementById('restartBtn');
+    const scoreEl = document.getElementById('score');
+    const indexEl = document.getElementById('index');
+    const totalEl = document.getElementById('total');
+    const barEl = document.getElementById('bar');
+
+    totalEl.textContent = questions.length;
+
+    function renderQuestion() {
+      locked = false;
+      const q = questions[current];
+      indexEl.textContent = current + 1;
+      questionEl.textContent = q.question;
+      hintEl.textContent = q.hint;
+      answersEl.innerHTML = '';
+      resultEl.className = 'result';
+      resultEl.textContent = '';
+      nextBtn.classList.add('hidden');
+      restartBtn.classList.add('hidden');
+      barEl.style.width = `${(current / questions.length) * 100}%`;
+
+      q.answers.forEach((answer, idx) => {
+        const btn = document.createElement('button');
+        btn.textContent = answer;
+        btn.onclick = () => chooseAnswer(idx, btn);
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function chooseAnswer(idx, clickedBtn) {
+      if (locked) return;
+      locked = true;
+      const q = questions[current];
+      const buttons = [...answersEl.querySelectorAll('button')];
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === q.correct) btn.classList.add('correct');
+      });
+
+      if (idx === q.correct) {
+        score++;
+        scoreEl.textContent = score;
+        resultEl.textContent = '✅ Chính xác! ' + q.explain;
+      } else {
+        clickedBtn.classList.add('wrong');
+        resultEl.textContent = '❌ Chưa đúng. ' + q.explain;
+      }
+      resultEl.classList.add('show');
+
+      if (current < questions.length - 1) {
+        nextBtn.classList.remove('hidden');
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      barEl.style.width = '100%';
+      restartBtn.classList.remove('hidden');
+      resultEl.classList.add('show');
+      const message = score === questions.length
+        ? '🎉 Tuyệt vời! Bé trả lời đúng tất cả.'
+        : score >= Math.ceil(questions.length * 0.6)
+          ? '👏 Làm tốt lắm! Tiếp tục luyện thêm nhé.'
+          : '💪 Ổn rồi, chơi lại một lần nữa để nhớ lâu hơn nhé.';
+      resultEl.textContent = `Kết thúc! Bé đạt ${score}/${questions.length} điểm. ${message}`;
+    }
+
+    nextBtn.onclick = () => {
+      current++;
+      renderQuestion();
+    };
+
+    restartBtn.onclick = () => {
+      current = 0;
+      score = 0;
+      scoreEl.textContent = score;
+      renderQuestion();
+    };
+
+    renderQuestion();
+  </script>
+</body>
+</html>
