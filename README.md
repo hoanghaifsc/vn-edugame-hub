@@ -12,7 +12,7 @@ Mở `games/index.html` trực tiếp trên browser.
 
 ## Phong cách
 
-Thiết kế theo vibe [vn-edugame-hub.vercel.app](https://vn-edugame-hub.vercel.app):
+Thiết kế theo vibe [vn-edugame-hub-mu.vercel.app](https://vn-edugame-hub-mu.vercel.app/):
 - Card-based, gọn, dễ dùng
 - Phân loại theo môn / lớp
 - Feedback ngay, không onboarding dài
