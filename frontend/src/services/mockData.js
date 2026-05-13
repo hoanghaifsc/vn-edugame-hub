@@ -100,6 +100,16 @@ export const MOCK_GAMES = [
     isActive: true,
     playable: true,
   },
+  {
+    gameId: 'animal-match',
+    title: 'Ghép Đôi Động Vật',
+    subject: 'science',
+    thumbnailUrl: 'https://placehold.co/280x160/fbbc04/333333?text=Animal+Match',
+    description: 'Ghép con vật với môi trường sống hoặc thức ăn phù hợp. Luyện quan sát và kiến thức khoa học lớp 1-3.',
+    gradeLevel: [1, 2, 3],
+    isActive: true,
+    playable: true,
+  },
 ];
 
 // ─── Assignments ──────────────────────────────────────────────────────────────

@@ -112,6 +112,8 @@ export const translations = {
   'game.word-quiz-vi.desc':     { vi:'Ôn tập từ vựng và chính tả Tiếng Việt qua câu đố vui.', en:'Practice Vietnamese vocabulary and spelling through fun quizzes.', zh:'通过趣味测验练习越南语词汇和拼写。', ko:'재미있는 퀴즈로 베트남어 어휘와 맞춤법을 연습합니다.', ja:'楽しいクイズでベトナム語の語彙とスペルを練習します。', es:'Practica vocabulario y ortografía vietnamita con divertidos juegos.', fr:'Entraîne-toi en vocabulaire et orthographe vietnamiens.' },
   'game.math-compare.title':    { vi:'So Sánh Số',                   en:'Number Compare',                zh:'数字比较',                   ko:'숫자 비교',                   ja:'数くらべ',                       es:'Comparar Números',            fr:'Comparer les Nombres'       },
   'game.math-compare.desc':     { vi:'Chọn dấu >, < hoặc = để so sánh hai số. Luyện nền tảng toán lớp 1-2.', en:'Choose >, < or = to compare two numbers. Practice core math for grades 1-2.', zh:'选择 >、< 或 = 来比较两个数字，练习一年级到二年级基础数学。', ko:'>, <, = 기호를 골라 두 숫자를 비교해요. 1-2학년 기초 수학을 연습합니다.', ja:'>, <, = を選んで2つの数をくらべよう。小学1-2年向けの基礎算数です。', es:'Elige >, < o = para comparar dos números. Practica matemáticas básicas de 1.º-2.º.', fr:'Choisis >, < ou = pour comparer deux nombres. Exerce les bases de maths niveau CP-CE1.' },
+  'game.animal-match.title':    { vi:'Ghép Đôi Động Vật',            en:'Animal Match',                  zh:'动物配对',                     ko:'동물 짝맞추기',                ja:'どうぶつマッチ',                  es:'Parejas de Animales',         fr:'Associer les Animaux'        },
+  'game.animal-match.desc':     { vi:'Ghép con vật với môi trường sống hoặc thức ăn phù hợp. Luyện quan sát và kiến thức khoa học lớp 1-3.', en:'Match animals with the right habitat or food. Practice observation and science knowledge for grades 1-3.', zh:'将动物与合适的栖息地或食物配对，练习观察力与科学知识。', ko:'동물을 알맞은 서식지나 먹이와 연결하며 관찰력과 과학 지식을 익혀요.', ja:'動物を正しいすみかや食べ物と組み合わせて、観察力と理科の知識を育てます。', es:'Relaciona animales con su hábitat o alimento correcto. Practica observación y ciencias para 1.º-3.º.', fr:'Associe les animaux à leur habitat ou nourriture. Exerce l’observation et les sciences du CP au CE2.' },
   'game.nature-quiz.title':     { vi:'Khám Phá Tự Nhiên',             en:'Explore Nature',                zh:'探索自然',                   ko:'자연 탐험',                   ja:'自然探検',                       es:'Explorar la Naturaleza',      fr:'Explorer la Nature'          },
   'game.nature-quiz.desc':      { vi:'Tìm hiểu thực vật, động vật và hiện tượng tự nhiên.', en:'Discover plants, animals and natural phenomena.', zh:'了解植物、动物和自然现象。', ko:'식물, 동물과 자연 현상을 알아봅니다.', ja:'植物、動物、自然現象を学びます。', es:'Descubre plantas, animales y fenómenos naturales.', fr:'Découvre les plantes, animaux et phénomènes naturels.' },
 
@@ -158,6 +160,31 @@ export const translations = {
   'mathCompare.resultGreat':   { vi:'Bé so sánh số rất tốt rồi!', en:'Great job comparing numbers!', zh:'你比较数字很棒！', ko:'숫자 비교를 아주 잘했어요!', ja:'数くらべがとても上手！', es:'¡Muy bien comparando números!', fr:'Très bon travail pour comparer les nombres !' },
   'mathCompare.resultGood':    { vi:'Làm tốt lắm, chơi lại để tăng điểm nhé.', en:'Nice work. Play again to improve your score.', zh:'做得不错，再玩一次争取更高分。', ko:'잘했어요. 다시 해서 점수를 더 올려봐요.', ja:'よくできたね。もう一度遊んで点数アップ！', es:'Buen trabajo. Juega otra vez para mejorar tu puntaje.', fr:'Bon travail. Rejoue pour améliorer ton score.' },
   'mathCompare.resultTry':     { vi:'Không sao, luyện thêm một chút nữa nhé.', en:'No worries. A bit more practice will help.', zh:'没关系，再多练习一下吧。', ko:'괜찮아요. 조금만 더 연습해봐요.', ja:'だいじょうぶ。もう少し練習してみよう。', es:'No pasa nada. Un poco más de práctica te ayudará.', fr:'Pas de souci. Un peu plus de pratique t’aidera.' },
+
+  // ─── AnimalMatch ───────────────────────────────────────────────────────────
+  'animalMatch.subtitle':      { vi:'Ghép con vật với nơi sống hoặc thức ăn phù hợp.', en:'Match each animal with the right habitat or food.', zh:'把动物和正确的栖息地或食物配对。', ko:'동물을 알맞은 서식지나 먹이와 연결해요.', ja:'動物を正しいすみかや食べ物と組み合わせよう。', es:'Relaciona cada animal con su hábitat o alimento.', fr:'Associe chaque animal à son habitat ou sa nourriture.' },
+  'animalMatch.score':         { vi:'Điểm', en:'Score', zh:'得分', ko:'점수', ja:'スコア', es:'Puntos', fr:'Score' },
+  'animalMatch.question':      { vi:'Câu', en:'Question', zh:'题', ko:'문제', ja:'問題', es:'Pregunta', fr:'Question' },
+  'animalMatch.streak':        { vi:'Chuỗi đúng:', en:'Streak:', zh:'连对：', ko:'연속 정답:', ja:'連続正解:', es:'Racha:', fr:'Série :' },
+  'animalMatch.level1':        { vi:'Mức 1 · Môi trường sống', en:'Level 1 · Habitat', zh:'第1级 · 栖息地', ko:'1단계 · 서식지', ja:'レベル1 · すみか', es:'Nivel 1 · Hábitat', fr:'Niveau 1 · Habitat' },
+  'animalMatch.level2':        { vi:'Mức 2 · Thức ăn', en:'Level 2 · Food', zh:'第2级 · 食物', ko:'2단계 · 먹이', ja:'レベル2 · 食べ物', es:'Nivel 2 · Comida', fr:'Niveau 2 · Nourriture' },
+  'animalMatch.level3':        { vi:'Mức 3 · Ghép hiểu biết', en:'Level 3 · Mixed match', zh:'第3级 · 综合配对', ko:'3단계 · 혼합 매칭', ja:'レベル3 · 総合マッチ', es:'Nivel 3 · Mixto', fr:'Niveau 3 · Mixte' },
+  'animalMatch.instruction':   { vi:'Chọn đáp án đúng. Mỗi câu chỉ chọn một lần.', en:'Choose the correct answer. You can answer once per question.', zh:'选择正确答案。每题只能作答一次。', ko:'정답을 하나 고르세요. 각 문제는 한 번만 선택할 수 있어요.', ja:'正しい答えを選ぼう。各問題は1回だけ選べます。', es:'Elige la respuesta correcta. Solo puedes responder una vez por pregunta.', fr:'Choisis la bonne réponse. Une seule réponse par question.' },
+  'animalMatch.correct':       { vi:'✅ Chính xác!', en:'✅ Correct!', zh:'✅ 正确！', ko:'✅ 정답!', ja:'✅ 正解！', es:'✅ ¡Correcto!', fr:'✅ Correct !' },
+  'animalMatch.wrong':         { vi:'❌ Chưa đúng.', en:'❌ Not quite.', zh:'❌ 不对。', ko:'❌ 틀렸어요.', ja:'❌ ちがうよ。', es:'❌ No es correcto.', fr:'❌ Pas encore.' },
+  'animalMatch.correctBadge':  { vi:'Đúng', en:'Right', zh:'正确', ko:'정답', ja:'正解', es:'Bien', fr:'Juste' },
+  'animalMatch.wrongBadge':    { vi:'Sai', en:'Wrong', zh:'错误', ko:'오답', ja:'不正解', es:'Mal', fr:'Faux' },
+  'animalMatch.correctAnswer': { vi:'Đáp án đúng là:', en:'Correct answer:', zh:'正确答案：', ko:'정답:', ja:'正解：', es:'Respuesta correcta:', fr:'Bonne réponse :' },
+  'animalMatch.points':        { vi:'điểm', en:'points', zh:'分', ko:'점', ja:'ポイント', es:'puntos', fr:'points' },
+  'animalMatch.next':          { vi:'Câu tiếp →', en:'Next →', zh:'下一题 →', ko:'다음 →', ja:'次へ →', es:'Siguiente →', fr:'Suivant →' },
+  'animalMatch.viewResult':    { vi:'Xem kết quả →', en:'See results →', zh:'查看结果 →', ko:'결과 보기 →', ja:'結果を見る →', es:'Ver resultados →', fr:'Voir résultats →' },
+  'animalMatch.back':          { vi:'← Quay lại', en:'← Back', zh:'← 返回', ko:'← 뒤로', ja:'← 戻る', es:'← Volver', fr:'← Retour' },
+  'animalMatch.playAgain':     { vi:'Chơi lại', en:'Play again', zh:'再玩一次', ko:'다시 하기', ja:'もう一度', es:'Jugar otra vez', fr:'Rejouer' },
+  'animalMatch.resultTitle':   { vi:'Kết quả', en:'Result', zh:'结果', ko:'결과', ja:'結果', es:'Resultado', fr:'Résultat' },
+  'animalMatch.correctAnswers':{ vi:'câu đúng', en:'correct answers', zh:'题答对', ko:'문제 정답', ja:'問正解', es:'respuestas correctas', fr:'bonnes réponses' },
+  'animalMatch.resultGreat':   { vi:'Bé ghép đúng rất tốt rồi!', en:'Great animal matching!', zh:'动物配对做得很棒！', ko:'동물 짝맞추기를 아주 잘했어요!', ja:'どうぶつマッチがとても上手！', es:'¡Excelente al relacionar animales!', fr:'Très bon travail pour associer les animaux !' },
+  'animalMatch.resultGood':    { vi:'Làm tốt lắm, chơi lại để ghi điểm cao hơn nhé.', en:'Nice work. Play again to improve your score.', zh:'做得不错，再玩一次争取更高分。', ko:'잘했어요. 다시 해서 점수를 더 올려봐요.', ja:'よくできたね。もう一度遊んで点数アップ！', es:'Buen trabajo. Juega otra vez para mejorar tu puntaje.', fr:'Bon travail. Rejoue pour améliorer ton score.' },
+  'animalMatch.resultTry':     { vi:'Không sao, mình học thêm về các con vật nhé.', en:'No worries. Let’s learn a bit more about animals.', zh:'没关系，我们再多认识一些动物吧。', ko:'괜찮아요. 동물에 대해 조금 더 배워봐요.', ja:'だいじょうぶ。動物についてもう少し学ぼう。', es:'No pasa nada. Aprendamos un poco más sobre los animales.', fr:'Pas de souci. Apprenons encore un peu sur les animaux.' },
 };
 
 /** Tra cứu bản dịch, fallback về tiếng Anh → key nếu thiếu */

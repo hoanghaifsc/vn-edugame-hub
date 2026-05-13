@@ -5,6 +5,7 @@ import TicTacToe     from '../game/TicTacToe/index.jsx';
 import WordQuizVi    from '../game/WordQuizVi/index.jsx';
 import MathCompare   from '../game/MathCompare/index.jsx';
 import DienDauTiengViet from '../game/DienDauTiengViet/index.jsx';
+import AnimalMatch from '../game/AnimalMatch/index.jsx';
 import { MOCK_GAMES } from '../services/mockData';
 
 const GAME_COMPONENTS = {
@@ -13,6 +14,7 @@ const GAME_COMPONENTS = {
   'word-quiz-vi': WordQuizVi,
   'math-compare': MathCompare,
   'dien-dau-tieng-viet': DienDauTiengViet,
+  'animal-match': AnimalMatch,
 };
 
 export default function GamePlay() {
